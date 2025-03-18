@@ -70,7 +70,7 @@ void loop() {
         Serial.println("Avanzando");
     } else {
         detener();
-        delay(500);
+        delay(5);
         
         if (distancia_frontal <= 100 && distancia_lateral <= 100) {
             izquierda();
@@ -83,7 +83,7 @@ void loop() {
             Serial.println("Girando a la izquierda");
         }
     }
-    delay(500);
+    delay(5);
 }
 
 float Medir_VL53L0X(Adafruit_VL53L0X &sensor) {
@@ -112,20 +112,21 @@ void atras() {
 
 void izquierda() {
     analogWrite(ENA, potencia);
-    digitalWrite(IN1, LOW);
-    digitalWrite(IN2, HIGH);
-    analogWrite(ENB, potencia);
-    digitalWrite(IN3, HIGH);
-    digitalWrite(IN4, LOW);
-}
-
-void derecha() {
-    analogWrite(ENA, potencia);
     digitalWrite(IN1, HIGH);
     digitalWrite(IN2, LOW);
     analogWrite(ENB, potencia);
     digitalWrite(IN3, LOW);
     digitalWrite(IN4, HIGH);
+}
+
+void derecha() {
+    
+    analogWrite(ENA, potencia);
+    digitalWrite(IN1, LOW);
+    digitalWrite(IN2, HIGH);
+    analogWrite(ENB, potencia);
+    digitalWrite(IN3, HIGH);
+    digitalWrite(IN4, LOW);
 }
 
 void detener() {

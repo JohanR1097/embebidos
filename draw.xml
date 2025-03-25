@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1264" dy="873" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+    <mxCell id="2" value="Inicio" style="ellipse;fillColor=#FFCCCC;strokeColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="200" y="50" width="120" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="3" value="Inicializar Sensores y Motores" style="rounded=1;fillColor=#FFFF99;strokeColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="150" y="150" width="220" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="4" value="Medir distancias" style="rhombus;fillColor=#FFFF99;strokeColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="200" y="270" width="140" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="5" value="Distancia frontal &gt; 100 mm?" style="rhombus;fillColor=#FFFF99;strokeColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="200" y="390" width="180" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="6" value="Avanzar" style="rounded=1;fillColor=#CCFFCC;strokeColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="250" y="500" width="120" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="7" value="Detenerse y evaluar lateral" style="rounded=1;fillColor=#FFFF99;strokeColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="150" y="600" width="220" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="8" value="Ambas distancias &lt;= 100 mm?" style="rhombus;fillColor=#FFFF99;strokeColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="180" y="710" width="200" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="9" value="Girar izquierda" style="rounded=1;fillColor=#CCFFCC;strokeColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="150" y="820" width="140" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="10" value="Distancia lateral &gt; 100 mm?" style="rhombus;fillColor=#FFFF99;strokeColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="300" y="820" width="200" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="11" value="Girar derecha" style="rounded=1;fillColor=#CCFFCC;strokeColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="350" y="930" width="140" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="12" value="Girar izquierda" style="rounded=1;fillColor=#CCFFCC;strokeColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="200" y="930" width="140" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="13" value="Fin" style="ellipse;fillColor=#FFCCCC;strokeColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="250" y="1050" width="120" height="60" as="geometry" />
+    </mxCell>
+  </root>
+</mxGraphModel>

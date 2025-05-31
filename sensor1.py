@@ -1,23 +1,46 @@
 from machine import Pin, I2C
-from vl53l0x import VL53L0X
+from vl530x import VL53L0X
 import time
 
-# Definición de pines I2C
-I2C_SDA = 21  # Pin SDA
-I2C_SCL = 22  # Pin SCL
+class SensoresLaser:
+    def __init__(self):
+        # Configuración de pines XSHUT para cada sensor
+        self.XSHUT_PINS = [33, 32]  # Pines XSHUT para el sensor frontal
+        self.SENSOR_COUNT = len(self.XSHUT_PINS)
 
-# Inicializar I2C
-i2c = I2C(0, sda=Pin(I2C_SDA), scl=Pin(I2C_SCL))
+        # Inicialización del bus I2C
+        self.i2c = I2C(0, sda=Pin(21), scl=Pin(22))
 
-# Inicializar el sensor VL53L0X
-sensor = VL53L0X(i2c)
+        # Lista para almacenar los objetos de los sensores
+        self.sensors = []
 
-# Iniciar medición continua
-sensor.start_continuous()
+        # Configuración inicial de los sensores
+        for i in range(self.SENSOR_COUNT):
+            address = 0x30 + i
+            sensor = self.setup_sensor(self.XSHUT_PINS[i], address)
+            self.sensors.append(sensor)
 
-print("Sensor VL53L0X listo!")
+    def setup_sensor(self, xshut_pin, address):
+        # Apagar el sensor
+        xshut = Pin(xshut_pin, Pin.OUT)
+        xshut.value(0)
+        time.sleep_ms(10)
 
-while True:
-    distancia = sensor.read()
-    print("Distancia:", distancia, "mm")
-    time.sleep(0.5)
+        # Encender el sensor
+        xshut.value(1)
+        time.sleep_ms(10)
+
+        # Inicializar el sensor con la dirección predeterminada (0x29)
+        sensor = VL53L0X(self.i2c, address=0x29)
+        sensor.start()
+
+        # Cambiar la dirección I2C del sensor
+        sensor.change_address(address)
+        return sensor
+
+    def leer_distancias(self):
+        # Leer las distancias de los sensores
+        distancia_izquierda = self.sensors[0].read()
+        distancia_frontal = self.sensors[1].read() 
+        return distancia_frontal, distancia_izquierda
+
